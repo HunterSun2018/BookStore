@@ -1,6 +1,8 @@
 ﻿using System.Threading.Tasks;
 using BookStore.Localization;
 using BookStore.MultiTenancy;
+using BookStore.Permissions;
+using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.Identity.Web.Navigation;
 using Volo.Abp.SettingManagement.Web.Navigation;
 using Volo.Abp.TenantManagement.Web.Navigation;
@@ -57,7 +59,7 @@ public class BookStoreMenuContributor : IMenuContributor
                     l["Menu:Books"],
                     url: "/Books"
                 )
-            )
+            ).RequirePermissions(BookStorePermissions.Books.Default) // Check the permission!;
         );
 
         return Task.CompletedTask;
