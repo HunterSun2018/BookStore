@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BookStore.Books;
+using BookStore.Authors;
 
 namespace BookStore;
 
@@ -11,7 +12,9 @@ public class BookStoreApplicationAutoMapperProfile : Profile
          * Alternatively, you can split your mapping configurations
          * into multiple profile classes for a better organization. */
 
-         CreateMap<Book, BookDto>();
-         CreateMap<CreateUpdateBookDto, Book>();
+        CreateMap<Book, BookDto>();
+        CreateMap<CreateUpdateBookDto, Book>();
+        CreateMap<Author, AuthorDto>();
+        CreateMap<Author, AuthorLookupDto>();
     }
 }
